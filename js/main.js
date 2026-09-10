@@ -235,6 +235,12 @@ document.addEventListener('DOMContentLoaded', () => {
       return ICON_SVG.nav;
     }
 
+    function updateActiveClasses() {
+      Array.from(list.children).forEach((row, i) => {
+        row.classList.toggle('active', i === activeIndex);
+      });
+    }
+
     function render() {
       list.innerHTML = '';
       if (!filtered.length) {
@@ -245,7 +251,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const row = document.createElement('div');
         row.className = 'cmdk-item' + (i === activeIndex ? ' active' : '');
         row.innerHTML = `${iconFor(cmd)}<span style="flex:1">${cmd.label}</span><span style="font-size:0.72rem;color:var(--outline)">${cmd.hint || ''}</span>`;
-        row.addEventListener('mouseenter', () => { activeIndex = i; render(); });
+        // Only re-highlight on hover — never rebuild the list here, or a click
+        // landing right as the row is destroyed/recreated would hit nothing.
+        row.addEventListener('mouseenter', () => { activeIndex = i; updateActiveClasses(); });
         row.addEventListener('click', () => select(cmd));
         list.appendChild(row);
       });
@@ -280,8 +288,8 @@ document.addEventListener('DOMContentLoaded', () => {
     backdrop.addEventListener('click', (e) => { if (e.target === backdrop) close(); });
     backdrop.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') { close(); }
-      else if (e.key === 'ArrowDown') { e.preventDefault(); activeIndex = Math.min(activeIndex + 1, filtered.length - 1); render(); }
-      else if (e.key === 'ArrowUp') { e.preventDefault(); activeIndex = Math.max(activeIndex - 1, 0); render(); }
+      else if (e.key === 'ArrowDown') { e.preventDefault(); activeIndex = Math.min(activeIndex + 1, filtered.length - 1); updateActiveClasses(); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); activeIndex = Math.max(activeIndex - 1, 0); updateActiveClasses(); }
       else if (e.key === 'Enter') { e.preventDefault(); if (filtered[activeIndex]) select(filtered[activeIndex]); }
     });
 
