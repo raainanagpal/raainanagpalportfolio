@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projects — Raaina Nagpal</title>
+<meta name="description" content="Case studies: Unwind (after 9), an AI automation workflow, and an AI speaker bot." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="projects">
+<header class="site-header">
+  <div class="inner">
+    <a href="index.html" class="brand">
+      <span class="brand-name">RAAINA NAGPAL</span>
+      <span class="brand-tag">Portfolio</span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" data-nav-link>About</a>
+<a href="projects.html" data-nav-link>Projects</a>
+<a href="experience.html" data-nav-link>Experience</a>
+<a href="resume.html" data-nav-link>Resume</a>
+    </nav>
+    <div class="header-actions">
+      <a href="mailto:raainanagpal@gmail.com" class="btn-connect">
+        <span>Let&rsquo;s connect</span>
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="mobile-menu" class="mobile-menu">
+  <div class="mobile-menu-top">
+    <div class="brand">
+      <span class="brand-name">RAAINA NAGPAL</span>
+      <span class="brand-tag">Finance &times; Business</span>
+    </div>
+    <button id="menu-close" class="mobile-menu-close" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-nav">
+    <a href="index.html" data-nav-link>About</a>
+<a href="projects.html" data-nav-link>Projects</a>
+<a href="experience.html" data-nav-link>Experience</a>
+<a href="resume.html" data-nav-link>Resume</a>
+  </nav>
+  <div class="mobile-menu-footer">&copy; <span id="current-year"></span> Raaina Nagpal. All rights reserved.</div>
+</div>
+
+<main>
+
+<section class="page-hero container">
+  <span class="eyebrow">Selected Work</span>
+  <h1 class="headline-lg">Projects</h1>
+  <p class="body-lg projects-subhead">From business ideas to AI-powered experiments.</p>
+</section>
+
+<section class="container">
+
+  <!-- PROJECT 1 — UNWIND (AFTER 9) -->
+  <article class="project-case" id="project-unwind">
+    <div class="project-case-head">
+      <span class="project-index">Project 01</span>
+      <h2 class="headline-lg">Unwind (after 9)</h2>
+      <p class="subtitle">Building a lifestyle brand from idea to execution.</p>
+    </div>
+
+    <div class="brand-logo-plate">
+      <img src="assets/images/projects/unwind-logo.jpg" alt="Unwind (after 9) logo" />
+    </div>
+
+    <p class="body-lg" style="max-width:70ch;">
+      Unwind (after 9) is a lifestyle e-commerce brand I built and operated end-to-end &mdash; from initial market
+      research through to running live sales. Revenue has crossed &#8377;2L+ since launch.
+    </p>
+
+    <div class="stat-highlight">
+      <span class="value">&#8377;2L+</span>
+      <span class="label">Revenue generated</span>
+    </div>
+
+    <div style="margin-top:0.5rem; display:flex; flex-wrap:wrap; gap:0.75rem;">
+      <a class="btn btn-primary" href="https://www.instagram.com/unwindafter9" target="_blank" rel="noopener">
+        <span>View on Instagram</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </article>
+
+  <!-- PROJECT 2 — INFLUENCER PAYMENT OS (MAKE.COM) -->
+  <article class="project-case" id="project-invoice-os">
+    <div class="project-case-head">
+      <span class="project-index">Project 02</span>
+      <h2 class="headline-lg">Influencer Payment OS</h2>
+      <p class="subtitle">Automated invoice generation for influencer marketing payments.</p>
+    </div>
+    <p class="body-lg" style="max-width:70ch;">
+      Built in Make.com, this scenario is the invoice-generation stage of an Influencer Payment OS. It pulls
+      approved campaign rows from a Google Sheet, calculates the agreed amount, agent commission and net payout,
+      fills a Google Docs invoice template with the campaign and payment details, exports it as a PDF, emails it
+      to the brand, and logs the result back to the sheet &mdash; turning a manual, back-and-forth payment process
+      into one automated flow.
+    </p>
+
+    <div class="flow-row">
+      <span class="flow-node">Approved Row</span>
+      <span class="flow-arrow">&rarr;</span>
+      <span class="flow-node">Generate Invoice</span>
+      <span class="flow-arrow">&rarr;</span>
+      <span class="flow-node">Export PDF</span>
+      <span class="flow-arrow">&rarr;</span>
+      <span class="flow-node">Email &amp; Log</span>
+    </div>
+
+    <h3 class="headline-sm">Full pipeline</h3>
+    <p class="body-md" style="margin-bottom:0.5rem;">Click a step below to see what it does, or open the live scenario itself.</p>
+    <div class="pipeline">
+      <div class="pipeline-track">
+      <button type="button" class="pipeline-node" data-num="01" data-title="Get Config" data-desc="Reads a small config record — the invoice number prefix, the currency symbol, and a demo email every notification is safely routed to." aria-label="Step 01: Get Config">01</button>
+      <div class="pipeline-connector"></div>
+      <button type="button" class="pipeline-node" data-num="02" data-title="Filter Approved Rows" data-desc="Scans the campaign tracker sheet for rows marked “Approved” that haven’t been invoiced yet." aria-label="Step 02: Filter Approved Rows">02</button>
+      <div class="pipeline-connector"></div>
+      <button type="button" class="pipeline-node" data-num="03" data-title="Set Invoice Variables" data-desc="Builds the invoice number, formats today’s date, and cleans up the agreed amount, agent commission and net payout into readable numbers." aria-label="Step 03: Set Invoice Variables">03</button>
+      <div class="pipeline-connector"></div>
+      <button type="button" class="pipeline-node" data-num="04" data-title="Create Invoice Doc" data-desc="Duplicates a Google Docs invoice template and fills in 17 fields — influencer, brand, platform, deliverables, amounts, payment terms and more." aria-label="Step 04: Create Invoice Doc">04</button>
+      <div class="pipeline-connector"></div>
+      <button type="button" class="pipeline-node" data-num="05" data-title="Export as PDF" data-desc="Converts the filled-in Google Doc into a PDF and saves it to the shared Drive folder." aria-label="Step 05: Export as PDF">05</button>
+      <div class="pipeline-connector"></div>
+      <button type="button" class="pipeline-node" data-num="06" data-title="Update Sheet Row" data-desc="Writes the new invoice number, date and a “Generated” status back into the original row." aria-label="Step 06: Update Sheet Row">06</button>
+      <div class="pipeline-connector"></div>
+      <button type="button" class="pipeline-node" data-num="07" data-title="Email Invoice" data-desc="Sends a formatted summary email with the PDF attached to the right recipient." aria-label="Step 07: Email Invoice">07</button>
+      <div class="pipeline-connector"></div>
+      <button type="button" class="pipeline-node" data-num="08" data-title="Log Activity" data-desc="Appends a timestamped record to an activity log, so every invoice generated stays traceable." aria-label="Step 08: Log Activity">08</button>
+      </div>
+      <div class="pipeline-detail">
+        <span class="pd-num">Step 01</span>
+        <h4 class="pd-title">Get Config</h4>
+        <p class="pd-text">Reads a small config record &mdash; the invoice number prefix, the currency symbol, and a demo email every notification is safely routed to.</p>
+      </div>
+      <div class="pipeline-controls">
+        <button type="button" class="btn btn-secondary" data-pipeline-play>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <span>Run simulation</span>
+        </button>
+        <span class="pipeline-hint">Click a step, or run the simulation to watch an invoice move through the pipeline.</span>
+      </div>
+    </div>
+    <div style="margin-top:1.25rem;">
+      <a class="btn btn-primary" href="https://us2.make.com/public/shared-scenario/LCtxZyIXwRV/influencer-payment-os-2-invoice-gene" target="_blank" rel="noopener">
+        <span>View Live Scenario</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+    <p class="editable-note">Built with Make.com &mdash; Google Sheets, Google Docs and Gmail modules.</p>
+  </article>
+
+  <!-- PROJECT 3 — AI SPEAKER BOT -->
+  <article class="project-case" id="project-speaker-bot">
+    <div class="project-case-head">
+      <span class="project-index">Project 03</span>
+      <h2 class="headline-lg">AI Speaker Bot</h2>
+      <p class="subtitle">Meet Pooja &mdash; an AI financial sales assistant.</p>
+    </div>
+    <p class="body-lg" style="max-width:70ch;">
+      Pooja is a friendly AI financial sales assistant who understands customers&rsquo; needs and recommends suitable
+      Finova Capital solutions. She answers questions, handles concerns, and guides interested customers toward the
+      next step &mdash; built as a real-time voice agent on Bolna.ai.
+    </p>
+
+    <div class="flow-row">
+      <span class="flow-node">Customer Inquiry</span>
+      <span class="flow-arrow">&rarr;</span>
+      <span class="flow-node">Understand Needs</span>
+      <span class="flow-arrow">&rarr;</span>
+      <span class="flow-node">Recommend Solution</span>
+      <span class="flow-arrow">&rarr;</span>
+      <span class="flow-node">Guide Next Step</span>
+    </div>
+
+    <div style="margin-top:0.5rem; display:flex; flex-wrap:wrap; gap:0.75rem;">
+      <a class="btn btn-primary" href="https://bolna.ai/a/eec803ca-99ba-4f00-9e31-bc806fce2e22" target="_blank" rel="noopener">
+        <span>Talk to Pooja on Bolna</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </article>
+
+  <!-- PROJECT 4 — CAREPULSE -->
+  <article class="project-case" id="project-carepulse">
+    <div class="project-case-head">
+      <span class="project-index">Project 04</span>
+      <h2 class="headline-lg">CarePulse</h2>
+      <p class="subtitle">A calm, personal health dashboard.</p>
+    </div>
+    <p class="body-lg" style="max-width:70ch;">
+      CarePulse is a web app that keeps a day's vitals, medication and meals in one place &mdash; blood pressure,
+      glucose readings, medication doses and meals, all on a single calm dashboard, with secure sign-in by email or
+      Google. <em>(Replace this paragraph with more on why you built it and who it's for.)</em>
+    </p>
+
+    <div class="flow-row">
+      <span class="flow-node">Sign in</span>
+      <span class="flow-arrow">&rarr;</span>
+      <span class="flow-node">Log vitals &amp; meals</span>
+      <span class="flow-arrow">&rarr;</span>
+      <span class="flow-node">Daily dashboard</span>
+    </div>
+
+    <h3 class="headline-sm">Live app</h3>
+    <div class="screenshot-frame">
+      <img src="assets/images/projects/carepulse-dashboard.jpg" alt="CarePulse dashboard screenshot" />
+    </div>
+    <div style="margin-top:1.5rem;">
+      <a class="btn btn-primary" href="https://carepulsee.lovable.app/" target="_blank" rel="noopener">
+        <span>Visit Live App</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </article>
+
+  <!-- PROJECT 5 — DRUMS ARE CALLING (SUNO SONG) -->
+  <article class="project-case" id="project-song">
+    <div class="project-case-head">
+      <span class="project-index">Project 05</span>
+      <h2 class="headline-lg">Drums Are Calling</h2>
+      <p class="subtitle">An original song, written and produced with Suno.</p>
+    </div>
+    <p class="body-lg" style="max-width:70ch;">
+      I used Suno to write and produce an original track called &ldquo;Drums Are Calling&rdquo; &mdash; a high-energy
+      dance song about letting the music take over for a night: bright lights, a packed floor, and a beat that
+      drowns out everything else. It's the track playing in the music player on this site.
+    </p>
+
+    <div class="inline-audio-player">
+      <audio controls preload="none" style="width:100%;">
+        <source src="assets/audio/theme-song.mp3" type="audio/mpeg" />
+      </audio>
+    </div>
+
+    <div style="margin-top:1.25rem; display:flex; flex-wrap:wrap; gap:0.75rem;">
+      <a class="btn btn-primary" href="https://suno.com/s/Me1VZhAeiTKbgPvw" target="_blank" rel="noopener">
+        <span>Listen on Suno</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </article>
+
+  <!-- PROJECT 6 — ECONOMICS ARTICLE -->
+  <article class="project-case" id="project-article">
+    <div class="project-case-head">
+      <span class="project-index">Project 06</span>
+      <h2 class="headline-lg">Say &ldquo;I Do&rdquo; to Paying Double</h2>
+      <p class="subtitle">The hidden economics of the Great Indian wedding.</p>
+    </div>
+    <p class="body-lg" style="max-width:70ch;">
+      A short essay on why prices quietly double the moment a vendor hears the word &ldquo;wedding&rdquo;. It walks
+      through willingness to pay, price discrimination and elasticity of demand to explain why photographers,
+      caterers and bridal boutiques can charge so much more for functionally the same service &mdash; and why some
+      economically savvy couples have started dodging the markup entirely.
+    </p>
+
+    <div style="margin-top:0.5rem; display:flex; flex-wrap:wrap; gap:0.75rem;">
+      <a class="btn btn-primary" href="assets/documents/wedding-economics-article.pdf" target="_blank" rel="noopener">
+        <span>Read Full Article</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+      <a class="btn btn-secondary" href="assets/documents/wedding-economics-article.pdf" download="Say-I-Do-to-Paying-Double.pdf">
+        <span>Download PDF</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16"/></svg>
+      </a>
+    </div>
+  </article>
+
+  <!-- PROJECT 7 — SECTOR MAP: SOCIAL & LIVE COMMERCE -->
+  <article class="project-case" id="project-sector-map">
+    <div class="project-case-head">
+      <span class="project-index">Project 07</span>
+      <h2 class="headline-lg">Sector Map: Social &amp; Live Commerce</h2>
+      <p class="subtitle">Mapping India&rsquo;s creator-to-commerce value chain, from engagement to profitable conversion.</p>
+    </div>
+    <p class="body-lg" style="max-width:70ch;">
+      A 12-slide sector map built for a Masters&rsquo; Union course, arguing that engagement alone doesn&rsquo;t
+      create profit in social and live commerce &mdash; the winners will be the players who own the full loop from
+      creator and content through to conversion, fulfilment and repeat purchase. It maps the value chain, the key
+      players, where the money actually gets made, the trust dynamics between creators, brands and customers, and
+      where AI is already changing discovery, content and live-commerce support.
+    </p>
+
+    <h3 class="headline-sm" style="margin-top:1.75rem;">The value chain</h3>
+    <div class="flow-row">
+      <span class="flow-node">Product / Brand</span>
+      <span class="flow-arrow">&rarr;</span>
+      <span class="flow-node">Creators &amp; Content</span>
+      <span class="flow-arrow">&rarr;</span>
+      <span class="flow-node">Discovery &amp; Engagement</span>
+      <span class="flow-arrow">&rarr;</span>
+      <span class="flow-node">Commerce Layer</span>
+      <span class="flow-arrow">&rarr;</span>
+      <span class="flow-node">Conversion</span>
+      <span class="flow-arrow">&rarr;</span>
+      <span class="flow-node">Fulfilment</span>
+      <span class="flow-arrow">&rarr;</span>
+      <span class="flow-node">Customer</span>
+      <span class="flow-arrow">&rarr;</span>
+      <span class="flow-node">Returns / RTO</span>
+    </div>
+
+    <h3 class="headline-sm">Key players mapped</h3>
+    <div class="skills-pills">
+      <span class="skill-pill">Instagram</span>
+      <span class="skill-pill">YouTube Shopping</span>
+      <span class="skill-pill">Meesho</span>
+      <span class="skill-pill">Amazon</span>
+      <span class="skill-pill">Flipkart</span>
+      <span class="skill-pill">Nykaa</span>
+      <span class="skill-pill">Razorpay</span>
+      <span class="skill-pill">Delhivery</span>
+    </div>
+
+    <div style="margin-top:1.5rem;">
+      <a class="btn btn-primary" href="assets/documents/sector-map-social-live-commerce.pptx" download="Sector-Map-Social-Live-Commerce.pptx">
+        <span>Download Deck (PPTX)</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16"/></svg>
+      </a>
+    </div>
+  </article>
+
+</section>
+
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name">RAAINA NAGPAL</span>
+        <p class="tagline">Finance &times; Business</p>
+        <p class="desc">Building at the intersection of finance, business, creativity and technology.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="resume.html">Resume</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:raainanagpal@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="M4 6l8 7 8-7"/></svg> <span>raainanagpal@gmail.com</span></a></li>
+          <li><a href="https://www.linkedin.com/in/raaina-nagpal-682293224" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15l6-6M8 13l-2 2a3.5 3.5 0 105 5l2-2M16 11l2-2a3.5 3.5 0 10-5-5l-2 2"/></svg> <span>linkedin.com/in/raaina-nagpal</span></a></li>
+          <li><a href="https://www.instagram.com/raaina1510" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-2h6l2 2h3v11H4z"/><circle cx="12" cy="13.5" r="3.2"/></svg> <span>instagram.com/raaina1510</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Built with curiosity, creativity &amp; AI.</p>
+      <p>&copy; <span id="current-year"></span> Raaina Nagpal. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<div id="audio-player" class="audio-player">
+  <audio preload="none" loop>
+    <source src="assets/audio/theme-song.mp3" type="audio/mpeg" />
+  </audio>
+  <button class="audio-speaker-btn" data-audio-play aria-label="Play or pause the song">
+    <span class="icon-speaker-off"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9z"/></svg></span>
+    <span class="icon-speaker-on"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16.3 8.3a5.2 5.2 0 010 7.4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M19 5.8a8.8 8.8 0 010 12.4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
+  </button>
+  <div class="audio-info">
+    <span class="now-playing">Now Playing</span>
+    <span class="song-name" data-audio-title>&lsquo;Drums Are Calling&rsquo;</span>
+    <div class="audio-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  </div>
+  <div class="audio-secondary">
+    <input type="range" class="audio-progress" data-audio-progress value="0" min="0" max="100" aria-label="Seek" />
+    <button class="audio-btn" data-audio-mute aria-label="Mute or unmute">
+      <span class="icon-volume"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 8a5 5 0 010 8"/></svg></span>
+      <span class="icon-muted" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9l4 6M20 9l-4 6"/></svg></span>
+    </button>
+  </div>
+</div>
+
+<button id="cmdk-hint" class="cmdk-hint" aria-label="Open quick navigation">
+  <span class="cmdk-hint-label">Quick nav</span>
+  <kbd>&#8984;K</kbd>
+</button>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
