@@ -5,14 +5,19 @@
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  /* ---------- Active nav link (works across all 4 pages) ---------- */
-  const current = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('[data-nav-link]').forEach((link) => {
-    const href = link.getAttribute('href');
-    if (href === current || (current === '' && href === 'index.html')) {
-      link.classList.add('active');
-    }
-  });
+  const isSPA = window.__RN_SPA__ === true;
+
+  /* ---------- Active nav link (multi-page site only — the SPA build handles
+     its own active-link state inside its hash router) ---------- */
+  function updateActiveNav(file) {
+    if (isSPA) return;
+    const current = file || window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('[data-nav-link]').forEach((link) => {
+      const href = link.getAttribute('href');
+      link.classList.toggle('active', href === current || (current === '' && href === 'index.html'));
+    });
+  }
+  updateActiveNav();
 
   /* ---------- Mobile menu ---------- */
   const menuToggle = document.getElementById('menu-toggle');
@@ -154,7 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---------- Command palette (Ctrl/Cmd+K quick navigation) ---------- */
-  const isSPA = window.__RN_SPA__ === true;
 
   function go(page, anchor) {
     if (isSPA) {
@@ -170,6 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const current = window.location.pathname.split('/').pop() || 'index.html';
       if (file === current && anchor) {
         document.getElementById(anchor)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else if (window.__RN_SOFT_NAV__) {
+        window.__RN_SOFT_NAV__(file + (anchor ? '#' + anchor : ''));
       } else {
         window.location.href = file + (anchor ? '#' + anchor : '');
       }
@@ -181,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { label: 'Go to Projects', hint: '', page: 'projects' },
     { label: 'Go to Experience', hint: '', page: 'experience' },
     { label: 'Go to Resume', hint: '', page: 'resume' },
+    { label: 'Kept', hint: 'Project', page: 'projects', anchor: 'project-kept' },
     { label: 'Unwind (after 9)', hint: 'Project', page: 'projects', anchor: 'project-unwind' },
     { label: 'Influencer Payment OS', hint: 'Project', page: 'projects', anchor: 'project-invoice-os' },
     { label: 'AI Speaker Bot — Pooja', hint: 'Project', page: 'projects', anchor: 'project-speaker-bot' },
@@ -310,59 +317,128 @@ document.addEventListener('DOMContentLoaded', () => {
   if (hint) hint.addEventListener('click', () => palette.open());
 
   /* ---------- Interactive pipeline simulator (Influencer Payment OS) ---------- */
-  document.querySelectorAll('.pipeline').forEach((pipeline) => {
-    const nodes = Array.from(pipeline.querySelectorAll('.pipeline-node'));
-    const connectors = Array.from(pipeline.querySelectorAll('.pipeline-connector'));
-    const numEl = pipeline.querySelector('.pd-num');
-    const titleEl = pipeline.querySelector('.pd-title');
-    const textEl = pipeline.querySelector('.pd-text');
-    const playBtn = pipeline.querySelector('[data-pipeline-play]');
-    const playLabel = playBtn ? playBtn.querySelector('span') : null;
-    let timer = null;
+  function initPipelines() {
+    document.querySelectorAll('.pipeline:not([data-inited])').forEach((pipeline) => {
+      pipeline.setAttribute('data-inited', '1');
+      const nodes = Array.from(pipeline.querySelectorAll('.pipeline-node'));
+      const connectors = Array.from(pipeline.querySelectorAll('.pipeline-connector'));
+      const numEl = pipeline.querySelector('.pd-num');
+      const titleEl = pipeline.querySelector('.pd-title');
+      const textEl = pipeline.querySelector('.pd-text');
+      const playBtn = pipeline.querySelector('[data-pipeline-play]');
+      const playLabel = playBtn ? playBtn.querySelector('span') : null;
+      let timer = null;
 
-    function stopSim() {
-      clearInterval(timer);
-      timer = null;
-      if (playLabel) playLabel.textContent = 'Run simulation';
-    }
+      function stopSim() {
+        clearInterval(timer);
+        timer = null;
+        if (playLabel) playLabel.textContent = 'Run simulation';
+      }
 
-    function setActive(i) {
-      nodes.forEach((n, idx) => {
-        n.classList.toggle('active', idx === i);
-        n.classList.toggle('done', idx < i);
-      });
-      connectors.forEach((c, idx) => c.classList.toggle('done', idx < i));
-      const d = nodes[i].dataset;
-      numEl.textContent = 'Step ' + d.num;
-      titleEl.textContent = d.title;
-      textEl.textContent = d.desc;
-    }
+      function setActive(i) {
+        nodes.forEach((n, idx) => {
+          n.classList.toggle('active', idx === i);
+          n.classList.toggle('done', idx < i);
+        });
+        connectors.forEach((c, idx) => c.classList.toggle('done', idx < i));
+        const d = nodes[i].dataset;
+        numEl.textContent = 'Step ' + d.num;
+        titleEl.textContent = d.title;
+        textEl.textContent = d.desc;
+      }
 
-    nodes.forEach((n, i) => {
-      n.addEventListener('click', () => {
-        stopSim();
-        setActive(i);
-      });
-    });
-
-    if (playBtn) {
-      playBtn.addEventListener('click', () => {
-        if (timer) { stopSim(); return; }
-        playLabel.textContent = 'Pause simulation';
-        let i = 0;
-        setActive(0);
-        timer = setInterval(() => {
-          i += 1;
-          if (i >= nodes.length) { stopSim(); return; }
+      nodes.forEach((n, i) => {
+        n.addEventListener('click', () => {
+          stopSim();
           setActive(i);
-        }, 1300);
+        });
       });
-    }
 
-    setActive(0);
-  });
+      if (playBtn) {
+        playBtn.addEventListener('click', () => {
+          if (timer) { stopSim(); return; }
+          playLabel.textContent = 'Pause simulation';
+          let i = 0;
+          setActive(0);
+          timer = setInterval(() => {
+            i += 1;
+            if (i >= nodes.length) { stopSim(); return; }
+            setActive(i);
+          }, 1300);
+        });
+      }
+
+      setActive(0);
+    });
+  }
+  initPipelines();
 
   /* ---------- Footer year ---------- */
   const yearEl = document.getElementById('current-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* ---------- Soft page navigation (keeps audio playing across pages) ----------
+     Multi-page site, but internal links swap <main> via fetch instead of a full
+     reload, so the persistent header/audio-player/cmdk never unmount. Falls back
+     to a real navigation for anything unexpected. Not used in the single-page
+     (SPA) build, which already avoids reloads via hash routing. */
+  if (!isSPA) {
+    const PAGE_FILES = ['index.html', 'projects.html', 'experience.html', 'resume.html'];
+    const mainEl = document.querySelector('main');
+
+    const isSoftNavLink = (a) => {
+      if (!a || !a.getAttribute) return false;
+      if (a.hasAttribute('download') || a.target === '_blank') return false;
+      const href = a.getAttribute('href') || '';
+      const [file] = href.split('#');
+      return PAGE_FILES.includes(file) || file === '';
+    };
+
+    const softNavigate = async (href, push) => {
+      const [file, anchor] = href.split('#');
+      const target = file || 'index.html';
+      try {
+        const res = await fetch(target);
+        if (!res.ok) { window.location.href = href; return; }
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const newMain = doc.querySelector('main');
+        const newTitle = doc.querySelector('title');
+        if (!newMain || !mainEl) { window.location.href = href; return; }
+
+        mainEl.innerHTML = newMain.innerHTML;
+        if (newTitle) document.title = newTitle.textContent;
+        if (push) history.pushState({ href }, '', href);
+        updateActiveNav(target);
+        initPipelines();
+
+        if (anchor) {
+          requestAnimationFrame(() => {
+            const el = document.getElementById(anchor);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        } else {
+          window.scrollTo(0, 0);
+        }
+      } catch (e) {
+        window.location.href = href;
+      }
+    };
+
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href]');
+      if (!a || !isSoftNavLink(a)) return;
+      e.preventDefault();
+      if (mobileMenu && mobileMenu.classList.contains('open')) closeMenu();
+      softNavigate(a.getAttribute('href'), true);
+    });
+
+    window.addEventListener('popstate', () => {
+      const file = window.location.pathname.split('/').pop() || 'index.html';
+      softNavigate(file, false);
+    });
+
+    // Let the command palette's go() use soft navigation too, instead of a hard reload.
+    window.__RN_SOFT_NAV__ = (href) => softNavigate(href, true);
+  }
 });
